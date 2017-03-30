@@ -1,0 +1,15 @@
+<ion-view view-title={{newsinfo.title}}>
+	<ion-header-bar align-title="left" class="bar-positive">
+		<ion-nav-bar class="bar-positive">
+        	<ion-nav-back-button></ion-nav-back-button>
+    	</ion-nav-bar>
+	</ion-header-bar>
+	<ion-content id="news-detail" has-subheader="false">
+		<h2>{{newsinfo.title}}</h2>
+		<p class="header-info">{{newsinfo.site}}&nbsp;{{newsinfo.ts | date : format : fullDate}}</p>
+		<div class="tex-content" ng-repeat="tex in newsinfo.content">
+			<img ng-if="tex.type == 'image'" ng-src={{tex.data.original.url}} alt="">
+			<p ng-if="tex.type == 'text'">{{tex.data}}</p>
+		</div>
+	</ion-content>
+</ion-view>

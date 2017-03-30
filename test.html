@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> -->
+</head>
+
+<body>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- <script src="https://m.news.baidu.com/news?tn=bdapibaiyue&t=hotwordnews&wf=0&cb=fn"></script> -->
+    <script>
+    function getData(nids, fn) {
+        $.ajax({
+            url: 'b.php',
+            type: 'get',
+            data: {
+                nid: nids
+            },
+            dataType: "json",
+            success: function(data) {
+                fn(data)
+            },
+            error: function(info) {
+                console.log(info)
+            }
+        })
+    }
+    // getData("8472821093880329697",function(data){console.log(data)})
+    console.log(new Date(1490833856151));
+    console.log(new Date())
+    </script>
+</body>
+<script>
+// angular.module('app',[])
+// .controller('ctrl', function($scope,$http){
+//     $http({
+//         method: 'JSONP',
+//         url: 'https://m.news.baidu.com/news?tn=bdapibaiyue&t=newchosenlist&cb=JSON_CALLBACK'
+//     }).success(function(data){
+//         console.log(1)
+//     })
+
+// })
+</script>
+
+</html>

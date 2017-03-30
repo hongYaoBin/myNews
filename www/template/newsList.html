@@ -1,0 +1,54 @@
+<ion-view view-title="首页">
+    <ion-content class="has-subheader">
+        <ion-slide-box ng-if="banner" does-continue="true" auto-play="true" delegate-handle="slideboximgs">
+            <ion-slide ng-repeat="item in list track by $index" >
+                <a href="#/tab/newsinfo/{{item.nid}}">
+                    <div class="box" style="height:210px">
+                        <img ng-src={{item.imageurls[0].url}} alt="" width="375px">
+                        <h1>{{item.title}}</h1>
+                    </div>
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+        <ion-list id="news-list">
+            <ion-item href="#/tab/newsinfo/{{new.nid}}" ng-repeat="new in arr track by $index">
+                <div class="news-item">
+                    <div ng-if="new.imageurls.length == 0">
+                        <h2 class="news-title">{{new.title}}</h2>
+                        <div class="news-item-bottom">
+                            <div class="news-bottom-main">
+                                <span class="tip-time">{{new.pulltime | date:"shortDate"}}</span>
+                                <span class="tip-from">{{new.site}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="new.imageurls.length == 3">
+                        <h2 class="news-title">{{new.title}}</h2>
+                        <div class="img-list"><img ng-repeat="img in new.imageurls" ng-src="{{img.url}}" alt=""></div>
+                        <div class="news-item-bottom">
+                            <div class="news-bottom-main">
+                                <span class="tip-time">{{new.pulltime | date:"shortDate"}}</span>
+                                <span class="tip-from">{{new.site}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="new.imageurls.length == 1" class="img-new">
+                        <div class="news-leftimg">
+                            <img ng-src="{{new.imageurls[0].url}}" alt="">
+                        </div>
+                        <div class="news-info">
+                            <h2 class="news-title">{{new.title}}</h2>
+                            <div class="news-item-bottom">
+                                <div class="news-bottom-main">
+                                    <span class="tip-time">{{new.pulltime | date:"shortDate"}}</span>
+                                    <span class="tip-from">{{new.site}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll icon="ion-loading-c" ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()" distance="-10%" ></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

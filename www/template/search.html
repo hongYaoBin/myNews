@@ -1,0 +1,20 @@
+<ion-view view-title="搜索">
+    <ion-content has-header="true">
+        <div class="list" style="margin-bottom:0">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="请输入关键字">
+                </label>
+                <button class="button button-small">
+                    搜索
+                </button>
+            </div>
+        </div>
+        <ul class="list">
+		    <li class="item" ng-repeat="item in list">
+			    <i class="icon ion-ios-flame" style="color:#f00;font-size:.18rem;padding-right:.1rem"></i>
+			    {{item.title}}
+		    </li>
+		</ul>
+    </ion-content>
+</ion-view>
