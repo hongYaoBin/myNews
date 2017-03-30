@@ -1,0 +1,21 @@
+<ion-view view-title="注册">
+    <ion-content has-subheader="false">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" ng-model="$parent.username" placeholder="请输入用户名">
+            </label>
+            <label class="item item-input">
+                <input type="text" ng-model="$parent.psd" placeholder="请输入密码">
+            </label>
+        </div>
+        <div class="padding"><button class="button button-block button-positive" ng-click="regist()">注册</button></div>
+        <div class="row">
+			<div class="col col-33">
+				<a href="#/tab/login">已注册？</a>
+			</div>
+			<div class="col col-33 col-offset-33" style="text-align:right">
+				<a href="">忘记密码</a>
+			</div>
+        </div>
+    </ion-content>
+</ion-view>

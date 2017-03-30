@@ -38,6 +38,24 @@ angular.module('starter', ['ionic'])
                 url: "/tab",
                 templateUrl: "template/tabs.html"
             })
+            .state("tab.login", {
+                url: "/login",
+                views: {
+                    "tab-setting": {
+                        templateUrl: "template/login.html",
+                        controller: "ctrl4"
+                    }
+                }
+            })
+            .state("tab.regist", {
+                url: "/regist",
+                views: {
+                    "tab-setting": {
+                        templateUrl: "template/regist.html",
+                        controller: "ctrl5"
+                    }
+                }
+            })
             .state("tab.home", {
                 url: "/home",
                 views: {
@@ -200,4 +218,67 @@ angular.module('starter', ['ionic'])
             $scope.list = data.data.data.news;
             console.log(data.data.data.news);
         })
+    }])
+    .controller('ctrl4', ['$scope', '$http', '$state', function($scope, $http, $state) {
+        $scope.username = "";
+        $scope.psd = "";
+        $scope.login = function() {
+            if ($scope.username == "" || $scope.psd == "") {
+                  alert("用户名或密码不能为空");
+            } else {
+                $http({
+                    url: "../login.php",
+                    method: "get",
+                    params: {
+                        "username": $scope.username,
+                        "password": $scope.psd
+                    }
+                }).then(function success(data) {
+                    // console.log(data);
+                    if(data.data){
+                        // $state.go("/tab",{},{reload:true});
+                    }else{
+                        alert("用户名或密码有误");
+                    }
+                }, function failCallbacks(data) {
+
+                })
+            }
+
+        }
+    }])
+    .controller('ctrl5', ['$scope', '$http', function($scope,$http){
+        $scope.username = "";
+        $scope.psd = "";
+        $scope.regist = function() {
+            if ($scope.username == "" || $scope.psd == "") {
+                alert("用户名或密码不能为空");
+                console.log('---');
+            } else {
+                $http({
+                    url: "../regist.php",
+                    method: "get",
+                    params: {
+                        "username": $scope.username,
+                        "password": $scope.psd
+                    }
+                }).then(function success(data) {
+                    // console.log(data)
+                    switch(data.data){
+                        case "0":
+                            console.log(0);
+                        break;
+                        case "1":
+                            console.log(1)
+                        break;
+                        case "2":
+                            console.log(2)
+                        break;
+                    }
+                }, function failCallbacks(data) {
+
+                })
+            }
+
+        }
     }])
