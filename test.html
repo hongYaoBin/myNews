@@ -12,11 +12,11 @@
     <script>
     function getData(nids, fn) {
         $.ajax({
-            url: 'b.php',
+            url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=baidu&json=1',
             type: 'get',
-            data: {
+/*            data: {
                 nid: nids
-            },
+            },*/
             dataType: "json",
             success: function(data) {
                 fn(data)
@@ -26,9 +26,10 @@
             }
         })
     }
+    getData()
     // getData("8472821093880329697",function(data){console.log(data)})
-    console.log(new Date(1490833856151));
-    console.log(new Date())
+    // console.log(new Date(1490833856151));
+    // console.log(new Date())
     </script>
 </body>
 <script>

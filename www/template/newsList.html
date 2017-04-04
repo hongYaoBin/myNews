@@ -4,7 +4,7 @@
             <ion-slide ng-repeat="item in list track by $index" >
                 <a href="#/tab/newsinfo/{{item.nid}}">
                     <div class="box" style="height:210px">
-                        <img ng-src={{item.imageurls[0].url}} alt="" width="375px">
+                        <img ng-src={{item.imageurls[0].url}} alt="" width="100%">
                         <h1>{{item.title}}</h1>
                     </div>
                 </a>
